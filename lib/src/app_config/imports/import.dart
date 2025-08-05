@@ -65,3 +65,6 @@ export 'package:ifarmer/src/features/main_modules/dashboard/screen/widget/build_
 export 'package:ifarmer/src/features/main_modules/dashboard/screen/widget/build_navigation_bar_widget.dart';
 export 'package:ifarmer/src/features/main_modules/dashboard/screen/widget/build_appbar_widget.dart';
 export 'package:ifarmer/src/core/constants/app_constants.dart';
+export 'package:ifarmer/src/features/main_modules/home/controller/home_controller.dart';
+export 'package:ifarmer/src/features/main_modules/home/screen/home_screen.dart';
+export 'package:ifarmer/src/features/main_modules/search/controller/search_controller.dart';

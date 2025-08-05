@@ -20,10 +20,12 @@ class DashboardScreen extends BaseView<DashboardController> {
 
   @override
   Widget body(BuildContext context) {
-    return Obx(() => IndexedStack(
-      index: controller.myIndex.value,
-      children: controller.screenList,
-    ),
+    return SizedBox(
+      child: Obx(() => IndexedStack(
+        index: controller.myIndex.value,
+        children: controller.screenList,
+      ),
+      ),
     );
   }
 

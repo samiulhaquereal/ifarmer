@@ -1,4 +1,5 @@
 import 'package:ifarmer/src/app_config/imports/import.dart';
+import 'package:ifarmer/src/features/main_modules/search/screen/search_screen.dart';
 
 class DashboardController extends BaseController{
 
@@ -7,8 +8,8 @@ class DashboardController extends BaseController{
   final FocusNode fieldFocusNode = FocusNode();
 
   List<Widget> screenList = [
-    Container(color: AppColors.redColor),
-    Container(color: AppColors.blackColor),
+    HomeScreen(),
+    SearchScreen(),
     Container(color: AppColors.whiteColor),
   ];
 
