@@ -61,3 +61,7 @@ export 'package:ifarmer/src/core/widgets/loading_widget.dart';
 export 'package:ifarmer/src/core/utils/environment_utils/environment_utils.dart';
 export 'package:ifarmer/src/app_config/build/my_app.dart';
 export 'package:retcore/retcore.dart';
+export 'package:ifarmer/src/features/main_modules/dashboard/screen/widget/build_navigation_selected_line_widget.dart';
+export 'package:ifarmer/src/features/main_modules/dashboard/screen/widget/build_navigation_bar_widget.dart';
+export 'package:ifarmer/src/features/main_modules/dashboard/screen/widget/build_appbar_widget.dart';
+export 'package:ifarmer/src/core/constants/app_constants.dart';

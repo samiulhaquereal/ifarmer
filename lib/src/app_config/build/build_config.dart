@@ -15,23 +15,21 @@ abstract class AppEnvironment {
     switch (env) {
       case Environment.development:
         {
-          const base = String.fromEnvironment('DEVELOPMENT_BASE_URL');
-          const version = String.fromEnvironment('API_VERSION');
+          const base = String.fromEnvironment('BASE_URL');
           title = '${AppStrings.appName} - Dev';
           debugBanner = true;
-          baseUrl = '$base$version';
+          baseUrl = base;
           statusBarColor = AppColors.backgroundColor;
-          statusBarIconColor = Brightness.dark;
+          statusBarIconColor = Brightness.light;
           break;
         }
       case Environment.production: {
         const base = String.fromEnvironment('BASE_URL');
-        const version = String.fromEnvironment('API_VERSION');
         title = AppStrings.appName;
         debugBanner = false;
-        baseUrl = '$base$version';
+        baseUrl = base;
         statusBarColor = AppColors.backgroundColor;
-        statusBarIconColor = Brightness.dark;
+        statusBarIconColor = Brightness.light;
         break;
       }
     }

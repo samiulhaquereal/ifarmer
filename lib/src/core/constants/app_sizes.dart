@@ -41,4 +41,10 @@ abstract class AppSizes {
   static double largeRadius = 24.sp;
   static double roundedButtonRadius = 24.sp;
   static double extraLargeRadius = 36.sp;
+
+  static const int navigationSelectedLineHeight = 3;
+  static const double navigationBarBlur = 8;
+  static const double navigationBarIcon = 20;
+  static const double navigationBarBorderWidth = 1.5;
+  static const double elevationZero = 0;
 }

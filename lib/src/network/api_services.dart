@@ -11,13 +11,13 @@ class ApiServices {
 
   final RestApi _restApiClient = RestApi();
 
-  Future<dynamic> getDemoData() async {
-    final response = await _restApiClient.get(baseURL: ApiEndpoints.baseUrl,endpoint: ApiEndpoints.login);
+  Future<dynamic> getSearch({required String name, required int page}) async {
+    final response = await _restApiClient.get(baseURL: ApiEndpoints.baseUrl,endpoint: ApiEndpoints.search(name: name, page: page));
     return response;
   }
   
   Future<dynamic> postDemoData(Map<String, dynamic> data) async {
-    final response = await _restApiClient.post(baseURL: ApiEndpoints.baseUrl,endpoint: ApiEndpoints.login,body: data,needEncode: true);
+    final response = await _restApiClient.post(baseURL: ApiEndpoints.baseUrl,endpoint: ApiEndpoints.key,body: data,needEncode: true);
     return response;
   }
 

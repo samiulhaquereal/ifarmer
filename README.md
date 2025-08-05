@@ -57,7 +57,7 @@ fvm flutter build appbundle --flavor dev -t lib/src/app_config/build/main_dev.da
 ```
 
 ```
-fvm flutter run --flavor dev -t lib/src/app_config/build/main_dev.dart
+fvm flutter run --flavor dev -t lib/main.dart --dart-define=ENV=DEVELOPMENT --dart-define-from-file=env/env.json
 
 ```
 

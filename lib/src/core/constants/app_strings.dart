@@ -12,6 +12,9 @@ class AppStrings {
   static const String cancelButton = 'Cancel';
   static const String back = 'Back';
 
+  static const String exit = 'Exit';
+  static const String exitMessage = 'Do you want to exit?';
+
   static const String somethingWrongMessage = 'Something went wrong';
   static const String fieldHint = 'Type here';
 
@@ -27,4 +30,8 @@ class AppStrings {
   static const String PUT = 'PUT';
   static const String PATCH = 'PATCH';
   static const String DELETE = 'DELETE';
+
+  static const String home = 'Home';
+  static const String search = 'Search';
+  static const String menu = 'Menu';
 }

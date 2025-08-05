@@ -5,12 +5,26 @@ class DashboardScreen extends BaseView<DashboardController> {
 
   @override
   PreferredSizeWidget? appBar(BuildContext context) {
-    return null;
+    return buildAppBar(controller: controller);
+  }
+
+  @override
+  Future<bool> onWillPop() async {
+    return controller.showAppExitModal();
+  }
+
+  @override
+  Widget? bottomNavigationBar() {
+    return buildNavigationBar(controller: controller);
   }
 
   @override
   Widget body(BuildContext context) {
-    return Column();
+    return Obx(() => IndexedStack(
+      index: controller.myIndex.value,
+      children: controller.screenList,
+    ),
+    );
   }
 
 }

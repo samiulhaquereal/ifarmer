@@ -29,7 +29,7 @@ class AppDarkColors {
 abstract class AppColors {
   static Color primaryColor = ColorParse().parseColor('001E6C');
   static Color secondaryColor = ColorParse().parseColor('0078E6');
-  static Color backgroundColor = ColorParse().parseColor('0078E6');
+  static Color backgroundColor = ColorParse().parseColor('121212');
   static const Color grayColor = Colors.grey;
   static const Color transparentColor = Colors.transparent;
   static Color? customeGrayColor = Colors.grey[700];
@@ -37,5 +37,6 @@ abstract class AppColors {
   static const Color redColor = Colors.red;
   static const Color blackColor = Colors.black;
   static const Color whiteColor = Colors.white;
+  static const Color orangeColor = Colors.orange;
   static Color errorColor = ColorParse().parseColor('bf2d26');
 }
