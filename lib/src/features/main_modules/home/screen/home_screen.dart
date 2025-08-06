@@ -15,37 +15,25 @@ class HomeScreen extends BaseView<HomeController> {
 
   @override
   Widget body(BuildContext context) {
-    return Column(
-      children: [
-        Carousel(
-            imagePaths: [
-          "https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_SX300.jpg",
-          "https://m.media-amazon.com/images/M/MV5BMjIzMzAzMjQyM15BMl5BanBnXkFtZTcwNzM2NjcyOQ@@._V1_SX300.jpg",
-          "https://m.media-amazon.com/images/M/MV5BYWYyOGQzOGYtMGQ1My00ZWYxLTgzZjktZWYzN2IwYjkxYzM0XkEyXkFqcGc@._V1_SX300.jpg",
-          "https://m.media-amazon.com/images/M/MV5BNDc4YWYzNzEtNWMwMC00Y2ZlLWEzZWEtZDcwYjcwYTE3Y2ZlXkEyXkFqcGc@._V1_SX300.jpg"
+    return Obx(()=> Column(
+      mainAxisAlignment: controller.ignore.isFalse ? startMAA : startMAA,
+        children: [
+          Carousel(imagePaths: controller.posterPaths.value),
+          RetCore.space(10.h),
+          _buildLatestMovies(
+            imageUrls: [
+              "https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_SX300.jpg",
+              "https://m.media-amazon.com/images/M/MV5BMjIzMzAzMjQyM15BMl5BanBnXkFtZTcwNzM2NjcyOQ@@._V1_SX300.jpg",
+              "https://m.media-amazon.com/images/M/MV5BYWYyOGQzOGYtMGQ1My00ZWYxLTgzZjktZWYzN2IwYjkxYzM0XkEyXkFqcGc@._V1_SX300.jpg",
+              "https://m.media-amazon.com/images/M/MV5BNDc4YWYzNzEtNWMwMC00Y2ZlLWEzZWEtZDcwYjcwYTE3Y2ZlXkEyXkFqcGc@._V1_SX300.jpg"
+            ],
+          ),
         ],
-        ),
-        RetCore.space(10.h),
-        TopTvShowsSection(
-          imageUrls: [
-            "https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_SX300.jpg",
-            "https://m.media-amazon.com/images/M/MV5BMjIzMzAzMjQyM15BMl5BanBnXkFtZTcwNzM2NjcyOQ@@._V1_SX300.jpg",
-            "https://m.media-amazon.com/images/M/MV5BYWYyOGQzOGYtMGQ1My00ZWYxLTgzZjktZWYzN2IwYjkxYzM0XkEyXkFqcGc@._V1_SX300.jpg",
-            "https://m.media-amazon.com/images/M/MV5BNDc4YWYzNzEtNWMwMC00Y2ZlLWEzZWEtZDcwYjcwYTE3Y2ZlXkEyXkFqcGc@._V1_SX300.jpg"
-          ],
-        ),
-      ],
+      ),
     );
   }
-}
 
-class TopTvShowsSection extends StatelessWidget {
-  final List<String> imageUrls;
-
-  const TopTvShowsSection({super.key, required this.imageUrls});
-
-  @override
-  Widget build(BuildContext context) {
+  Widget _buildLatestMovies({required List<String> imageUrls}) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -62,7 +50,7 @@ class TopTvShowsSection extends StatelessWidget {
         ),
         RetCore.space(10.h),
         SizedBox(
-          height: MediaQuery.of(context).size.height * 0.3, // adjust for poster height
+          height: MediaQuery.of(controller.buildContext!).size.height * 0.3, // adjust for poster height
           child: ListView.separated(
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.symmetric(horizontal: 16),
