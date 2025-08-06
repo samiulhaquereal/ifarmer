@@ -16,8 +16,9 @@ class ApiServices {
     return response;
   }
   
-  Future<dynamic> postDemoData(Map<String, dynamic> data) async {
-    final response = await _restApiClient.post(baseURL: ApiEndpoints.baseUrl,endpoint: ApiEndpoints.key,body: data,needEncode: true);
+  Future<dynamic> getDetails({required String imdbID}) async {
+    print(ApiEndpoints.details(imdbID: imdbID));
+    final response = await _restApiClient.get(baseURL: ApiEndpoints.baseUrl,endpoint: ApiEndpoints.details(imdbID: imdbID));
     return response;
   }
 

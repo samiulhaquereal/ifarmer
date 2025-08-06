@@ -34,6 +34,12 @@ class AppPages {
         bindings:[
           DashboardBinding()
         ]
-    )
+    ),
+    GetPage(
+        name: Routes.getMovieDetailsRoute(),
+        page: ()=> MovieDetailsScreen(),
+        binding: MovieDetailsBinding(),
+        transition: Transition.native
+    ),
   ];
 }

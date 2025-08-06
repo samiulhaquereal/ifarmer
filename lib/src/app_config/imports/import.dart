@@ -68,3 +68,8 @@ export 'package:ifarmer/src/core/constants/app_constants.dart';
 export 'package:ifarmer/src/features/main_modules/home/controller/home_controller.dart';
 export 'package:ifarmer/src/features/main_modules/home/screen/home_screen.dart';
 export 'package:ifarmer/src/features/main_modules/search/controller/search_controller.dart';
+export 'package:ifarmer/src/features/main_modules/movie_details/controller/movie_details_controller.dart';
+export 'package:ifarmer/src/model/movie_details_model.dart';
+export 'package:ifarmer/src/model/search_model.dart';
+export 'package:ifarmer/src/features/main_modules/movie_details/bindings/movie_details_binding.dart';
+export 'package:ifarmer/src/features/main_modules/movie_details/screen/movie_details_screen.dart';

@@ -21,40 +21,58 @@ class SearchScreen extends BaseView<SearchItemController> {
               return Center(child: Text("No Results", style: TextStyle(color: Colors.white)));
             }
 
-            return ListView.builder(
-              itemCount: data.search!.length,
-              itemBuilder: (context, index) {
-                final movie = data.search![index];
+            return GridView.builder(
+                shrinkWrap: true,
+                physics: ClampingScrollPhysics(),
+                padding: const EdgeInsets.all(12),
+                itemCount: data.search!.length,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 12,
+                  crossAxisSpacing: 12,
+                  childAspectRatio: 0.65,
+                ),
+                itemBuilder: (context, index) {
+                  final movie = data.search![index];
+                  return InkWell(
+                    onTap: () => controller.onTapItem(imdbID: movie.imdbId ?? ''),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Expanded(
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(12),
+                            child: Image.network(
+                              movie.poster ?? '',
+                              width: double.infinity,
+                              fit: BoxFit.cover,
+                              errorBuilder: (_, __, ___) => Container(
+                                color: Colors.grey,
+                                alignment: Alignment.center,
+                                child: Icon(Icons.broken_image, color: Colors.white),
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+                        Text(
+                          movie.title ?? '',
+                          style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        Text('${movie.year} - ${movie.type.toString().split('.').last}',
+                            style: TextStyle(color: Colors.white70,fontSize: 12.sp)
+                        ),
 
-                return ListTile(
-                  leading: Image.network(movie.poster ?? '', width: 50, fit: BoxFit.cover),
-                  title: Text(movie.title ?? '', style: TextStyle(color: Colors.white)),
-                  subtitle: Text('${movie.year} - ${movie.type.toString().split('.').last}',
-                    style: TextStyle(color: Colors.white70),
-                  ),
-                );
-              },
-            );
+                      ],
+                    ),
+                  );
+                },
+              )
+            ;
           }),
         )
-        /*Expanded(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12),
-            child: GridView.builder(
-              itemCount: trendingMovies.length,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                mainAxisSpacing: 14,
-                crossAxisSpacing: 12,
-                childAspectRatio: 16 / 10,
-              ),
-              itemBuilder: (context, index) {
-                final item = trendingMovies[index];
-                return _buildTrendingCard(item);
-              },
-            ),
-          ),
-        )*/
       ],
     );
   }
@@ -88,58 +106,6 @@ class SearchScreen extends BaseView<SearchItemController> {
           ),
         ),
       );
-  }
-
-  Widget _buildTrendingCard(Map<String, dynamic> item) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Stack(
-          children: [
-            AspectRatio(
-              aspectRatio: 16 / 9,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child: Image.asset(item["image"], fit: BoxFit.cover),
-              ),
-            ),
-            if (item["premium"] == true)
-              Positioned(
-                top: 6,
-                right: 6,
-                child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-                  decoration: BoxDecoration(
-                    color: Colors.orange,
-                    borderRadius: BorderRadius.circular(4),
-                  ),
-                  child: Text("Premium", style: TextStyle(color: Colors.white, fontSize: 10)),
-                ),
-              ),
-            if (item["aTag"] == true)
-              Positioned(
-                bottom: 6,
-                right: 6,
-                child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 4, vertical: 1),
-                  decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(0.7),
-                    borderRadius: BorderRadius.circular(3),
-                  ),
-                  child: Text("A", style: TextStyle(color: Colors.white, fontSize: 10)),
-                ),
-              ),
-          ],
-        ),
-        SizedBox(height: 4),
-        Text(
-          item["title"],
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
-          style: TextStyle(color: Colors.white, fontSize: 13),
-        )
-      ],
-    );
   }
 
 }

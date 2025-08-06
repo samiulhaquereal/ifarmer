@@ -1,5 +1,4 @@
 import 'package:ifarmer/src/app_config/imports/import.dart';
-import 'package:ifarmer/src/model/search_model.dart';
 
 class SearchItemController extends BaseController{
 
@@ -29,5 +28,9 @@ class SearchItemController extends BaseController{
     } catch (e) {
       console.log('Error fetching LC List: $e');
     }
+  }
+
+  void onTapItem({required String imdbID}){
+    Get.toNamed(Routes.getMovieDetailsRoute(), arguments: imdbID);
   }
 }
