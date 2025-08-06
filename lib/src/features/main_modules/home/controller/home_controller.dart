@@ -8,11 +8,13 @@ class HomeController extends BaseController{
     _getMoviePoster();
   }
 
+
+
   Future<void> _getMoviePoster() async {
     try {
       Map<String, dynamic>? response = await apiServices.getSearch(name: 'Iron Man', page: 1);
       console.log(response);
-      if(response!['Response'] == 'True'){
+      if (response?['records'] != null && response?['records']['Response'] == 'True'){
         console.log(response);
       }
     } catch (e) {

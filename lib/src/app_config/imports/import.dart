@@ -73,3 +73,4 @@ export 'package:ifarmer/src/model/movie_details_model.dart';
 export 'package:ifarmer/src/model/search_model.dart';
 export 'package:ifarmer/src/features/main_modules/movie_details/bindings/movie_details_binding.dart';
 export 'package:ifarmer/src/features/main_modules/movie_details/screen/movie_details_screen.dart';
+export 'package:ifarmer/src/core/widgets/custom_carousel.dart';

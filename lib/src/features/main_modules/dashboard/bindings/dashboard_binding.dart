@@ -8,6 +8,10 @@ class DashboardBinding extends Bindings {
             () => DashboardController(),
         fenix: true
     );
+    Get.lazyPut<HomeController>(
+            () => HomeController(),
+        fenix: true
+    );
     Get.lazyPut<SearchItemController>(
             () => SearchItemController(),
         fenix: true

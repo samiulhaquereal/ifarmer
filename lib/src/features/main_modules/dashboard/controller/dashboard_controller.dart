@@ -10,7 +10,7 @@ class DashboardController extends BaseController{
   List<Widget> screenList = [
     HomeScreen(),
     SearchScreen(),
-    Container(color: AppColors.whiteColor),
+    Container(color: AppColors.backgroundColor),
   ];
 
   Future<bool> showAppExitModal() async {
