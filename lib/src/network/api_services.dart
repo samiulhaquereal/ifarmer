@@ -11,8 +11,8 @@ class ApiServices {
 
   final RestApi _restApiClient = RestApi();
 
-  Future<dynamic> getSearch({required String name, required int page}) async {
-    final response = await _restApiClient.get(baseURL: ApiEndpoints.baseUrl,endpoint: ApiEndpoints.search(name: name, page: page));
+  Future<dynamic> getSearch({required String name, required int page, String? year}) async {
+    final response = await _restApiClient.get(baseURL: ApiEndpoints.baseUrl,endpoint: ApiEndpoints.search(name: name, page: page, year: year));
     return response;
   }
   

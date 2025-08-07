@@ -64,18 +64,18 @@ class MovieDetailsScreen extends BaseView<MovieDetailsController> {
     return Stack(
       children: [
         Container(
-          width: double.infinity,
+          width: Get.width.w,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(20),
-              topRight: Radius.circular(20),
+              topLeft: Radius.circular(20.r),
+              topRight: Radius.circular(20.r),
             ),
           ),
           clipBehavior: Clip.hardEdge,
           child: AspectRatio(
             aspectRatio: 3 / 4,
             child: url != null && url != "N/A"
-                ? Image.network(url, fit: BoxFit.cover)
+                ? Image.network(url, fit: BoxFit.fitWidth)
                 : Container(color: Colors.grey[800]),
           ),
         ),

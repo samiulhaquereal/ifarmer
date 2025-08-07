@@ -9,6 +9,8 @@ class ApiEndpoints {
 
   static const endpointSearch = String.fromEnvironment('ENDPOINT_SEARCH');
   static const endpointDetails = String.fromEnvironment('ENDPOINT_DETAILS');
-  static String search({required String name,required int page}) => '$endpointSearch$name&page=$page$apiKey';
+  static String search({required String name,required int page, String? year}){
+   return year != null ? '$endpointSearch$name&y=$year&page=$page$apiKey' : '$endpointSearch$name&page=$page$apiKey';
+  }
   static String details({required String imdbID}) => '$endpointDetails$imdbID$apiKey';
 }

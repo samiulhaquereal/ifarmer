@@ -7,6 +7,7 @@ class Carousel extends StatefulWidget {
   Carousel ({
     super.key,
     required this.imagePaths,
+    this.onPosterTap,
     this.padding = 0,
     this.radius  = 0,
     this.durationSeconds = 3,
@@ -22,6 +23,7 @@ class Carousel extends StatefulWidget {
   Color? activeColor ;
   Color? inactiveColor;
   Curve? curve;
+  final void Function(String posterUrl)? onPosterTap;
 
   @override
   State<Carousel> createState() => _Carousel();
@@ -82,21 +84,28 @@ class _Carousel extends State<Carousel> {
                       });
                     },
                     itemBuilder: (_, index) {
-                      return AnimatedScale(
-                          scale: index == _activePage ? 1.0 : 0.9,
-                          duration: const Duration(milliseconds: 300),
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 8.w),
-                            child: Center(
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(widget.radius!),
-                                child: AspectRatio(
-                                  aspectRatio: 2 / 3,
-                                  child: PlaceHolder(imagePath: widget.imagePaths[index]),
+                      return InkWell(
+                        onTap: () {
+                          if (widget.onPosterTap != null) {
+                            widget.onPosterTap!(widget.imagePaths[index]);
+                          }
+                        },
+                        child: AnimatedScale(
+                            scale: index == _activePage ? 1.0 : 0.9,
+                            duration: const Duration(milliseconds: 300),
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 8.w),
+                              child: Center(
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(widget.radius!),
+                                  child: AspectRatio(
+                                    aspectRatio: 2 / 3,
+                                    child: PlaceHolder(imagePath: widget.imagePaths[index]),
+                                  ),
                                 ),
                               ),
-                            ),
-                          ));
+                            )),
+                      );
                     },
                   ),
                 ),
