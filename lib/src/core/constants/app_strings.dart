@@ -34,4 +34,16 @@ class AppStrings {
   static const String home = 'Home';
   static const String search = 'Search';
   static const String menu = 'Menu';
+
+  static const String na = "N/A";
+  static const String premium = "Premium";
+  static const String play = "Play Trailer";
+  static const String subscribe = "Subscribe Now";
+  static const String cast = "Cast";
+  static const String details = "Details";
+  static const String director = "Director";
+  static const String studio = "Studio";
+  static const String released = "Released";
+  static const String genre = "Genre";
+  static const String language = "Language";
 }

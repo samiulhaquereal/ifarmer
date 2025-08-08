@@ -32,7 +32,7 @@ class HomeController extends BaseController{
     }
   }
 
-  Future<void> _getLatestMoviePoster({bool loadMore = false}) async {
+  Future<void> _getLatestMoviePoster() async {
     try {
       final page = currentPage.value;
       Map<String, dynamic>? response = await apiServices.getSearch(name: 'Batman', page: page, year: '2022');

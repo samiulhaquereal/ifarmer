@@ -21,20 +21,20 @@ Widget buildNavigationBar({
               backgroundColor: AppColors.transparentColor,
               elevation: AppSizes.elevationZero,
               selectedItemColor: AppColors.orangeColor,
-              unselectedItemColor: AppColors.customeGrayColor,
+              unselectedItemColor: AppColors.customGrayColor,
               currentIndex: controller.myIndex.value,
               onTap: (index) => controller.onTapNavigationBar(index),
               items: [
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.home, size: AppSizes.navigationBarIcon.sp,color: controller.myIndex.value == 0 ? AppColors.orangeColor : AppColors.customeGrayColor),
+                  icon: Icon(Icons.home, size: AppSizes.navigationBarIcon.sp,color: controller.myIndex.value == 0 ? AppColors.orangeColor : AppColors.customGrayColor),
                   label: AppStrings.home,
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.search, size: AppSizes.navigationBarIcon.sp,color: controller.myIndex.value == 1 ? AppColors.orangeColor : AppColors.customeGrayColor),
+                  icon: Icon(Icons.search, size: AppSizes.navigationBarIcon.sp,color: controller.myIndex.value == 1 ? AppColors.orangeColor : AppColors.customGrayColor),
                   label: AppStrings.search,
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.menu, size: AppSizes.navigationBarIcon.sp,color: controller.myIndex.value == 2 ? AppColors.orangeColor : AppColors.customeGrayColor),
+                  icon: Icon(Icons.menu, size: AppSizes.navigationBarIcon.sp,color: controller.myIndex.value == 2 ? AppColors.orangeColor : AppColors.customGrayColor),
                   label: AppStrings.menu,
                 ),
               ],

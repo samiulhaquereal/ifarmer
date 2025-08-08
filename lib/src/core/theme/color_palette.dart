@@ -32,7 +32,11 @@ abstract class AppColors {
   static Color backgroundColor = ColorParse().parseColor('121212');
   static const Color grayColor = Colors.grey;
   static const Color transparentColor = Colors.transparent;
-  static Color? customeGrayColor = Colors.grey[700];
+  static Color? customGrayColor = Colors.grey[800];
+  static Color white24Color = Colors.white24;
+  static Color white60Color = Colors.white60;
+  static Color white54Color = Colors.white54;
+  static Color white70Color = Colors.white70;
   static const Color greenColor = Colors.green;
   static const Color redColor = Colors.red;
   static const Color blackColor = Colors.black;

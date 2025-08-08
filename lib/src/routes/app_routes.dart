@@ -6,6 +6,7 @@ abstract class Paths {
   static const String _loginPage = "/loginPage";
   static const String _dashboardPage = "/dashboardPage";
   static const String _movieDetailsPage = "/movieDetailsPage";
+  static const String _streamPage = "/streamPage";
 }
 
 abstract class Routes{
@@ -16,4 +17,5 @@ abstract class Routes{
   static String getLoginRoute ()=> Paths._loginPage;
   static String getDashboardRoute()=> Paths._dashboardPage;
   static String getMovieDetailsRoute()=> Paths._movieDetailsPage;
+  static String getStreamRoute()=> Paths._streamPage;
 }

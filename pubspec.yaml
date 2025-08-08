@@ -51,6 +51,7 @@ dependencies:
   upgrader: ^11.4.0
   cached_network_image: ^3.4.1
   retcore: ^0.0.2
+  video_player: ^2.10.0
 
 dev_dependencies:
   flutter_test:

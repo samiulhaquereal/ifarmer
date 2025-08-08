@@ -7,12 +7,6 @@ abstract class BaseController extends GetxController {
   GetStorage get storage => GetStorage();
   AppLogger get console => AppLogger();
 
-  void _navigateToScreen(Widget Function() screen) {
-    Future.delayed(
-      Duration.zero, () => Get.to(screen, opaque: false, fullscreenDialog: true),
-    );
-  }
-
   Future<void> showLoader() async {
     Future.delayed(
       Duration.zero,

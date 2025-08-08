@@ -41,5 +41,11 @@ class AppPages {
         binding: MovieDetailsBinding(),
         transition: Transition.native
     ),
+    GetPage(
+        name: Routes.getStreamRoute(),
+        page: ()=> StreamVideoScreen(),
+        binding: StreamVideoBinding(),
+        transition: Transition.native
+    ),
   ];
 }
