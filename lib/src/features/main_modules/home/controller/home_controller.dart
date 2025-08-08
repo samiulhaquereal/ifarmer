@@ -9,11 +9,13 @@ class HomeController extends BaseController{
   RxList<String> posterPaths = <String>[].obs;
   RxList<String> latestMoviePosterPaths = <String>[].obs;
 
+  var isLoadingMore = false.obs;
+
   @override
   void onInit() {
     super.onInit();
     _getMoviePoster();
-    _getLatestMoviePoster();
+    getLatestMoviePoster();
   }
 
   Future<void> _getMoviePoster() async {
@@ -32,20 +34,39 @@ class HomeController extends BaseController{
     }
   }
 
-  Future<void> _getLatestMoviePoster() async {
+  Future<void> getLatestMoviePoster({bool loadMore = false}) async {
     try {
+      if (loadMore) {
+        isLoadingMore.value = true;
+        currentPage.value++;
+      } else {
+        currentPage.value = 1;
+        latestMoviePosterPaths.clear();
+      }
+
       final page = currentPage.value;
-      Map<String, dynamic>? response = await apiServices.getSearch(name: 'Batman', page: page, year: '2022');
-      if (response?['records'] != null && response?['records']['Response'] == 'True'){
+      Map<String, dynamic>? response = await apiServices.getSearch(
+        name: 'Batman',
+        page: page,
+        year: '2022',
+      );
+
+      if (response?['records'] != null && response?['records']['Response'] == 'True') {
         final jsonString = jsonEncode(response?['records']);
         latestMovieResult.value = searchModelFromJson(jsonString);
-        latestMoviePosterPaths.value = latestMovieResult.value?.search
+
+        final posters = latestMovieResult.value?.search
             ?.map((e) => e.poster ?? '')
             .where((url) => url.isNotEmpty)
-            .toList() ?? [];
+            .toList() ??
+            [];
+
+        latestMoviePosterPaths.addAll(posters);
       }
     } catch (e) {
       console.log('Error fetching List: $e');
+    } finally {
+      isLoadingMore.value = false;
     }
   }
 
@@ -55,7 +76,6 @@ class HomeController extends BaseController{
   }) {
     final matchedItem = source.value?.search
         ?.firstWhere((item) => item.poster == posterUrl);
-
     if (matchedItem != null && matchedItem.imdbId != null) {
       Get.toNamed(Routes.getMovieDetailsRoute(), arguments: matchedItem.imdbId!);
     } else {

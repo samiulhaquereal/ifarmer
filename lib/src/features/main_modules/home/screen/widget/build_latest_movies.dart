@@ -16,7 +16,7 @@ Widget buildLatestMovies({required List<String> imageUrls,required HomeControlle
         ),
       ),
       RetCore.space(10.h),
-      buildLatestMovieList(controller, imageUrls),
+      buildLatestMovieList(controller),
     ],
   );
 }
