@@ -46,4 +46,6 @@ class AppStrings {
   static const String released = "Released";
   static const String genre = "Genre";
   static const String language = "Language";
+  static const String noResult = "No Results";
+  static const String latestMovie = "Latest movies";
 }

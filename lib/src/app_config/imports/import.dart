@@ -89,3 +89,10 @@ export 'package:ifarmer/src/features/main_modules/stream_video/screen/stream_vid
 export 'package:ifarmer/src/core/constants/prefs_keys.dart';
 export 'package:ifarmer/src/core/utils/local_storage/storage_manager.dart';
 export 'package:ifarmer/src/features/authentication/splash/screen/widget/build_splash_animation.dart';
+export 'package:ifarmer/src/features/main_modules/stream_video/screen/widget/build_video_player.dart';
+export 'package:ifarmer/src/features/main_modules/search/screen/widget/build_search_bar.dart';
+export 'package:ifarmer/src/features/main_modules/search/screen/widget/build_search_item.dart';
+export 'package:ifarmer/src/features/main_modules/search/screen/widget/build_search_list.dart';
+export 'package:ifarmer/src/features/main_modules/home/screen/widget/build_latest_movie_list_item.dart';
+export 'package:ifarmer/src/features/main_modules/home/screen/widget/build_latest_movie_list.dart';
+export 'package:ifarmer/src/features/main_modules/home/screen/widget/build_latest_movies.dart';

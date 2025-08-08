@@ -11,7 +11,7 @@ class HomeController extends BaseController{
 
   @override
   void onInit() {
-    super.onInit(); // initial fetch
+    super.onInit();
     _getMoviePoster();
     _getLatestMoviePoster();
   }
@@ -62,6 +62,4 @@ class HomeController extends BaseController{
       console.log('No matching IMDb ID found for poster: $posterUrl');
     }
   }
-
-
 }

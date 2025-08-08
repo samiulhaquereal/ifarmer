@@ -16,7 +16,7 @@ Widget buildHeaderImage(String? url) {
           aspectRatio: 3 / 4,
           child: url != null && url != AppStrings.na
               ? Image.network(url, fit: BoxFit.fitWidth)
-              : Container(color: AppColors.customGrayColor),
+              : Container(color: AppColors.customGrayColor,child: Icon(Icons.broken_image, color: AppColors.whiteColor,size: 20.sp)),
         ),
       ),
       Positioned(
